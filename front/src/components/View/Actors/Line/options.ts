@@ -1,5 +1,5 @@
 import { EChartsOption } from "echarts"
-const colors = ["#2DB389"]
+const colors = ["#3794FF"]
 export const createLineOption = (
     title: string,
     data: { x: string; y: number }[]
@@ -85,7 +85,7 @@ export const createLineOption = (
                     show: true,
                     symbol: ["none", "none"],
                     lineStyle: {
-                        color: "#2DB389",
+                        color: "#3794FF",
                     },
                 },
             },
