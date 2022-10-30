@@ -2,12 +2,7 @@
 import { onMounted, ref } from "vue"
 import { getBroadcast } from "@/api/chat"
 import Action from "./Action.vue"
-const actions = ref(
-    [] as {
-        name: string
-        value: any
-    }[]
-)
+const actions = ref([] as { name: string; value: number; color?: string }[])
 getBroadcast().then(({ data }) => {
     const items = [
         { name: "新增确诊", value: data.confirmAdd },
@@ -16,7 +11,7 @@ getBroadcast().then(({ data }) => {
         { name: "累计确诊", value: data.confirm },
         { name: "累计死亡", value: data.dead },
         { name: "累计治愈", value: data.heal },
-    ]
+    ] as { name: string; value: number; color?: string }[]
     actions.value = items
 })
 </script>
@@ -29,6 +24,7 @@ getBroadcast().then(({ data }) => {
             :key="action.name"
             :name="action.name"
             :value="action.value"
+            :color="action.color"
         />
     </div>
 </template>
